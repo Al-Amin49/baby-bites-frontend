@@ -5,7 +5,7 @@ import Navbar from "@/Components/Shared/Navbar/Navbar";
 
 const poppins = Poppins({
   weight: '400',
-  subsets: ['latin'],
+  subsets: ['devanagari'],
 });
 
 export const metadata: Metadata = {
