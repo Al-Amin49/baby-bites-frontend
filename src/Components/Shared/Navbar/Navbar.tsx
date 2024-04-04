@@ -19,8 +19,8 @@ const Navbar = () => {
       </div>
      {
         isDropDown && <>
-         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-accent font-medium">
-      <li className=" text text-primary"><Link href="/">Home</Link></li>
+         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-accent font-bold">
+      <li><Link href="/">Home</Link></li>
       <li><Link href="/">Categories</Link></li>
       <li><Link href="/">Products</Link></li>
       <li><Link href="/">Flash Sale</Link></li>
@@ -30,14 +30,14 @@ const Navbar = () => {
         </>
      }
     </div>
-    <a className="btn btn-ghost text-xl">
+    <Link href="/" className="btn btn-ghost text-xl">
         <span className="text-secondary">Baby</span> <span className="text-primary">Bites</span>
-        </a>
+        </Link>
   </div>
   {/* large screen */}
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1 text-accent font-medium">
-      <li className=" text text-primary"><Link href="/">Home</Link></li>
+    <ul className="menu menu-horizontal px-1 text-accent font-bold">
+      <li ><Link href="/">Home</Link></li>
       <li><Link href="/">Categories</Link></li>
       <li><Link href="/">Products</Link></li>
       <li><Link href="/">Flash Sale</Link></li>
@@ -46,7 +46,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn btn-primary">Button</a>
+    <Link href="/login" className="btn btn-primary">Login</Link>
   </div>
 </div>
         </Container>

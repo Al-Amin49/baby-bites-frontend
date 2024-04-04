@@ -1,7 +1,11 @@
+import Banner from "@/Components/UI/Banner/Banner";
+import FlashSale from "@/Components/UI/FlashSale/FlashSale";
+
 const HomePage = () => {
   return (
     <div>
-      <h3>THis is homepage</h3>
+    <Banner/>
+    <FlashSale/>
     </div>
   );
 };
