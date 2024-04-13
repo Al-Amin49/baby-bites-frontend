@@ -1,6 +1,24 @@
+"use client"
 import Image from "next/image";
 import { bannerData } from "../../Utils/data";
-
+import {motion} from "framer-motion"
+const laptop={
+    initial:{y:0, rotate:35, scale:2},
+    animate:{
+        y:20,
+        rotate:0,
+        scale:1,
+        transition:{
+            duration:1,
+            y:{
+                duration:2,
+                repeat:Infinity,
+                repeatType:'reverse',
+                ease:'easeInOut'
+            }
+        }
+    }
+}
 const Banner = () => {
   
   return (
@@ -18,8 +36,11 @@ const Banner = () => {
             width={800}
             height={600}
           />
-          <div
-            className="absolute inset-0 flex flex-col justify-center  text-white text-center bg-primary w-[60%]  lg:w-[35%] h-[65%] lg:h-[48%]  mx-auto top-[52%] sm:p-10 lg:p-1"
+          <motion.div
+           variants={laptop}
+           initial='initial'
+           animate='animate'
+            className="absolute inset-0 flex flex-col justify-center z-10 text-white text-center bg-primary w-[60%]  lg:w-[35%] h-[65%] lg:h-[48%]  mx-auto top-[52%] sm:p-10 lg:p-1"
             style={{
               clipPath:
                 "polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)",
@@ -30,7 +51,7 @@ const Banner = () => {
               {slide.description}
             </p>
             <button className="btn btn-secondary w-[50%] mx-auto font-bold mt-5 ">Order Now</button>
-          </div>
+          </motion.div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a
               href={`#slide-${index === 0 ? bannerData.length : index}`}
