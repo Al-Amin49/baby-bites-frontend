@@ -3,7 +3,7 @@ import Image from "next/image";
 import { bannerData } from "../../Utils/data";
 import {motion} from "framer-motion"
 const laptop={
-    initial:{y:0, rotate:35, scale:2},
+    initial:{y:0, rotate:35, scale:0},
     animate:{
         y:20,
         rotate:0,

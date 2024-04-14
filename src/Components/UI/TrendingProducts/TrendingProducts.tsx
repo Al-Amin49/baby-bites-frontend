@@ -16,7 +16,7 @@ const TrendingProducts =async () => {
         return sale.reviews.some((review:any) => review.rating >= 4);
       });
     return (
-        <Container className="my-10 pb-10">
+        <Container className="my-10 py-10">
             <h3 className='text-3xl text-secondary font-bold my-10'>Trending Products</h3>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 place-items-center">
       {trendingSales?.slice(0,6).map((sale: any) => (
