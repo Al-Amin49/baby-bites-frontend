@@ -1,15 +1,17 @@
 import Container from "@/Components/Container/Container";
 import Image from "next/image";
+import Link from "next/link";
+
 
 const FlashSale = async () => {
   const res = await fetch("http://localhost:5000/api/v1/products", {
     next: {
-      revalidate:5,
+      revalidate:30,
     },
   });
   const { data: sales } = await res.json();
   return (
-    <Container className="my-10">
+    <Container className="my-10 py-10">
       <h1 className="text-center text-3xl font-bold text-red-500 my-10 flex justify-center items-center">
         <Image src="https://tinyurl.com/22a9w6xy" width={80} height={80} alt="ballon" />
          Limited Time Deals!
@@ -42,6 +44,10 @@ const FlashSale = async () => {
         </div>
       ))}
          </div>
+         <div className="text-center my-6"> 
+      <Link href="/flash-sale">    <button className="btn btn-primary">View All</button></Link>
+         </div>
+
     </Container>
   );
 };
