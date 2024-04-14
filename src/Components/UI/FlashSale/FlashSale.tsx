@@ -10,7 +10,11 @@ const FlashSale = async () => {
   const { data: sales } = await res.json();
   return (
     <Container className="my-10">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
+      <h1 className="text-center text-3xl font-bold text-red-500 my-10 flex justify-center items-center">
+        <Image src="https://tinyurl.com/22a9w6xy" width={80} height={80} alt="ballon" />
+         Limited Time Deals!
+         </h1>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 place-items-center">
       {sales.map((sale: any) => (
        sale.flashSale &&<div key={sale._id}>
           <div className="card w-96 h-96 shadow-xl">
@@ -23,7 +27,7 @@ const FlashSale = async () => {
              height={400}/>
             </figure>
             <div className="card-body">
-              <h2 className="card-title">
+              <h2 className="card-title text-secondary">
                 {sale.title}
                 
               </h2>
