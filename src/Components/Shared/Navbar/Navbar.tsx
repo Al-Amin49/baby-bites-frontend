@@ -28,7 +28,7 @@ const Navbar = () => {
          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-accent font-bold">
       <li onClick={handleCloseNav}><Link href="/">Home</Link></li>
       <li onClick={handleCloseNav}><Link href="/">Categories</Link></li>
-      <li onClick={handleCloseNav}><Link href="/">Products</Link></li>
+      <li onClick={handleCloseNav}><Link href="/products">Products</Link></li>
       <li onClick={handleCloseNav}><Link href="flash-sale">Flash Sale</Link></li>
       <li onClick={handleCloseNav}><Link href="/">About Us</Link></li>
       <li onClick={handleCloseNav}><Link href="/">Contact Us</Link></li>
@@ -45,10 +45,11 @@ const Navbar = () => {
     <ul className="menu menu-horizontal px-1 text-accent font-bold">
       <li ><Link href="/">Home</Link></li>
       <li><Link href="/">Categories</Link></li>
-      <li><Link href="/">Products</Link></li>
+      <li><Link href="/products">Products</Link></li>
       <li><Link href="flash-sale">Flash Sale</Link></li>
       <li><Link href="/">About Us</Link></li>
       <li><Link href="/">Contact Us</Link></li>
+      <li><Link href="/dashboard"> Dashboard</Link></li>
     </ul>
   </div>
   <div className="navbar-end">
