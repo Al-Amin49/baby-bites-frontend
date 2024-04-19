@@ -4,11 +4,14 @@ import Image from "next/image";
 import Rating from "@/Components/Utils/Rating";
 
 const TrendingProducts = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/products", {
-    next: {
-      revalidate: 30,
-    },
-  });
+  const res = await fetch(
+    `${process.env.BACKEND_URL}/products`,
+    {
+      next: {
+        revalidate: 30,
+      },
+    }
+  );
   const { data: sales } = await res.json();
   const trendingSales = sales.filter((sale: any) => {
     // Filter products with a rating greater than or equal to 4

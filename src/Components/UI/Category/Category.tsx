@@ -2,7 +2,7 @@ import Container from "@/Components/Container/Container";
 import Image from "next/image";
 
 const Category = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/products");
+  const res = await fetch(`${process.env.BACKEND_URL}/products`);
   const { data: sales } = await res.json();
   return (
     <Container className="pb-10">

@@ -9,24 +9,24 @@ const poppins = Poppins({
   subsets: ["devanagari"],
 });
 
- const metadata: Metadata = {
+ export const metadata: Metadata = {
   title: "Baby Bites",
   description: "A Baby Online Shop",
 };
 
 export default function RootLayout({
   children,
-  isDashboard = false,
+
 }: Readonly<{
   children: React.ReactNode;
-  isDashboard?: boolean;
+ 
 }>) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-      { !isDashboard && <Navbar />}
+       <Navbar/>
         <div className="min-h-screen">{children}</div>
-       {!isDashboard && <Footer />}
+       <Footer />
       </body>
     </html>
   );

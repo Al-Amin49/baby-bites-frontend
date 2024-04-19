@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const FlashSale = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/products", {
+  const res = await fetch(`${process.env.BACKEND_URL}/products`, {
     next: {
       revalidate: 30,
     },
@@ -21,7 +21,7 @@ const FlashSale = async () => {
                 <div className="card w-96 h-96 shadow-xl">
                   <figure className="relative">
                     <div className="badge badge-secondary absolute top-4 right-4 font-bold">
-                      {sale.flashSale && sale?.discount}
+                      {sale.flashSale && sale?.discount}%
                     </div>
 
                     <Image

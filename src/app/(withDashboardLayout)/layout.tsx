@@ -8,7 +8,7 @@ import RootLayout from "../layout";
 const DashboardLayout=({children}:TDashboardProps)=>{
 
   return (
-    <RootLayout isDashboard={true}>
+    <>
         <div className="flex">
           <Sidebar/>
             {/* dashboard content */}
@@ -17,7 +17,7 @@ const DashboardLayout=({children}:TDashboardProps)=>{
             </div>
         </div>
         
-    </RootLayout>
+    </>
 );
         
   

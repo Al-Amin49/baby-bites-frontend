@@ -3,12 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProductsPage = async () => {
-  const res = await fetch(
-    "http://localhost:5000/api/v1/products",
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`${process.env.BACKEND_URL}/products`, {
+    cache: "no-store",
+  });
   const { data: sales } = await res.json();
   return (
     <Container className="my-10">

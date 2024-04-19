@@ -4,7 +4,7 @@ import CountdownTimer from "@/Components/Utils/CountdownTimer";
 import Rating from "@/Components/Utils/Rating";
 
 const FlashSalePage = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/products", {
+  const res = await fetch(`${process.env.BACKEND_URL}/products`, {
     cache: "no-store",
   });
   const { data: sales } = await res.json();

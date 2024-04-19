@@ -7,7 +7,9 @@ type TProductProps = {
 };
 export const generateStaticParams = async () => {
   try {
-    const res = await fetch("http://localhost:5000/api/v1/products");
+    const res = await fetch(
+      `${process.env.BACKEND_URL}/products`
+    );
     const products = await res.json();
 
     if (Array.isArray(products)) {
@@ -25,7 +27,7 @@ export const generateStaticParams = async () => {
 
 const ProductDetailsPage = async ({ params }: TProductProps) => {
   const res = await fetch(
-    `http://localhost:5000/api/v1/products/${params.productId}`,
+    `${process.env.BACKEND_URL}/products/${params.productId}`,
     { cache: "no-store" }
   );
   const { data: product } = await res.json();
