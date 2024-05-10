@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/Components/Shared/Navbar/Navbar";
+import Header from "@/Components/Shared/Header/Header";
 import Footer from "@/Components/UI/Footer/Footer";
+import { NextUIProvider } from "@nextui-org/react";
 
 const poppins = Poppins({
   weight: "400",
@@ -24,9 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-       <Navbar/>
+     
+ 
+    <NextUIProvider>
+    
+       <Header/>
         <div className="min-h-screen">{children}</div>
        <Footer />
+       </NextUIProvider>
       </body>
     </html>
   );
