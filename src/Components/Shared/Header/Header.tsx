@@ -24,11 +24,12 @@ import Link from "next/link";
     };
     const menuItems = [
       { label: "Home", href: "/" },
-      { label: "Categories", href: "#projects" },
+      { label: "Categories", href: "/" },
       { label: "Products", href: "/products" },
       { label: "Flash Sale", href: "flash-sale" },
       { label: "About Us", href: "/" },
       { label: "Contact Us", href: "/" },
+      { label: "test", href: "/" },
     ];
   
     return (
@@ -50,22 +51,7 @@ import Link from "next/link";
             </NavbarBrand>
           </NavbarContent>
           
-   {/* small screen */}
-          <NavbarMenu className="w-1/2 bg-gradient-to-bl from-gray-300 to-white ">
-            {menuItems.map((item, index) => (
-              <NavbarMenuItem key={`${item.label}-${index}`}>
-                <Link
-                  onClick={handleItemClick}
-                  className=" w-full text-secondary font-bold"
-                  href={item.href}
-                  size="lg"
-                >
-                  {item.label}
-                </Link>
-              </NavbarMenuItem>
-            ))}
-          </NavbarMenu>
-  
+
       {/* large screen */}
           <NavbarContent className="hidden sm:flex gap-4  font-medium" justify="center">
             {menuItems.map((item, index) => (
@@ -80,6 +66,21 @@ import Link from "next/link";
               </NavbarItem>
             ))}
           </NavbarContent>
+           {/* small screen */}
+           <NavbarMenu className="w-1/2 bg-gradient-to-bl from-gray-300 to-white ">
+            {menuItems.map((item, index) => (
+              <NavbarMenuItem key={`${item.label}-${index}`}>
+                <Link
+                  onClick={handleItemClick}
+                  className=" w-full text-secondary font-bold"
+                  href={item.href}
+                  
+                >
+                  {item.label}
+                </Link>
+              </NavbarMenuItem>
+            ))}
+          </NavbarMenu>
   
           <NavbarContent justify="end">
             <Link className="text-secondary font-medium" href="#contact">

@@ -7,6 +7,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Button } from "@nextui-org/react";
+import Link from "next/link";
 
 const Banner = () => {
   const laptop = {
@@ -57,9 +59,17 @@ const Banner = () => {
                style={{
                  clipPath: "polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)",
                }}
-              className="absolute inset-0 flex flex-col justify-center items-center bg-primary w-[60%]  lg:w-[35%] h-[50%] lg:h-[40%]  mx-auto top-[52%] sm:p-10 lg:p-1">
+              className="absolute inset-0 flex flex-col justify-center items-center bg-primary w-[60%]  lg:w-[35%] h-[60%] lg:h-[40%]  mx-auto top-[30%] sm:p-16 lg:p-1 ">
                 <h2 className="text-xl lg:text-2xl text-secondary font-bold mb-5 text-center">{banner.title}</h2>
                 <p className="text-sm lg:text-xl text-gray-300 text-center  font-bold">{banner.description}</p>
+               <Link href="/products">
+               <Button
+                className="bg-secondary text-white font-bold  mt-4"
+                variant="bordered"
+              >
+              Buy Now
+              </Button>
+               </Link>
               </motion.div>
             </div>
           </motion.div>
