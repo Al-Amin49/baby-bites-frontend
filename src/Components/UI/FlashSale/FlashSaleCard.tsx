@@ -11,8 +11,8 @@ type TFlashSaleProps={
 const FlashSaleCard = ({sale}:TFlashSaleProps) => {
     return (
         <>
-            <Card className="py-4 w-full max-w-xs" key={sale._id}>
-              <CardBody className="overflow-visible py-2">
+            <Card className=" w-full max-w-xs" key={sale._id}>
+              <CardBody className="overflow-visible ">
                 <div className="w-full h-64 relative">
                   <Image
                     alt="product"

@@ -1,6 +1,5 @@
 import Container from "@/Components/Container/Container";
 import CountdownTimer from "@/Components/Utils/CountdownTimer";
-import Image from "next/image";
 import Link from "next/link";
 import FlashSaleCard from "./FlashSaleCard";
 import { TFlashSale } from "@/types";
