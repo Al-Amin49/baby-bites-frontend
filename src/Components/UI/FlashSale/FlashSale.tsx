@@ -17,12 +17,14 @@ const FlashSale = async () => {
     <Container className="my-10 py-10">
       
       <CountdownTimer />
-      <div >
-        <Link href="/flash-sale" className="text-center my-6 mx-auto">
+   
+        <div className="py-12 ml-12">
+        <Link href="/flash-sale" >
           {" "}
           <PrimaryButton btnText="View All"></PrimaryButton>
         </Link>
-      </div>
+        </div>
+     
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 place-items-center">
         {sales.map(
           (sale:TFlashSale) =>

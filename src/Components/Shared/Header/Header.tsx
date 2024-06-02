@@ -30,7 +30,6 @@ import PrimaryButton from "@/Components/PrimaryButton/PrimaryButton";
       { label: "Flash Sale", href: "flash-sale" },
       { label: "About Us", href: "/" },
       { label: "Contact Us", href: "/" },
-      { label: "test", href: "/" },
     ];
   
     return (
@@ -85,7 +84,7 @@ import PrimaryButton from "@/Components/PrimaryButton/PrimaryButton";
   
           <NavbarContent justify="end">
             <Link className="text-secondary font-medium" href="#contact">
-             <PrimaryButton btnText="login"/>
+             <PrimaryButton btnText="Login"/>
             </Link>
           </NavbarContent>
         </Navbar>
