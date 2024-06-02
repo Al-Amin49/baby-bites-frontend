@@ -11,6 +11,7 @@ import {
   } from "@nextui-org/react";
   import { useState } from "react";
 import Link from "next/link";
+import PrimaryButton from "@/Components/PrimaryButton/PrimaryButton";
 
   
   const Header = () => {
@@ -84,12 +85,7 @@ import Link from "next/link";
   
           <NavbarContent justify="end">
             <Link className="text-secondary font-medium" href="#contact">
-              <Button
-                className="bg-primary text-white font-bold"
-                variant="bordered"
-              >
-              Login
-              </Button>
+             <PrimaryButton btnText="login"/>
             </Link>
           </NavbarContent>
         </Navbar>

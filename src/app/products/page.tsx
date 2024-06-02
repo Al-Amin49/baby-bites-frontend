@@ -17,7 +17,7 @@ const ProductsPage = async () => {
       </h3>
       <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
         <div className="">
-          {/* <ProductFilter onFilterChange={} /> */}
+         {/* <ProductFilter />  */}
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 place-items-center col-span-2">
           {sales.map((sale: any) => (
