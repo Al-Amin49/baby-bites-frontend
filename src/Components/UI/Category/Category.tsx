@@ -9,7 +9,7 @@ const Category = async () => {
       <h3 className="text-3xl text-secondary font-bold my-10">
         Top Categories
       </h3>
-      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 place-items-center ">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-4 place-items-center ">
         {sales.slice(0, 4).map((sale: any) => (
           <div key={sale._id} className="text-center relative ">
             <Image

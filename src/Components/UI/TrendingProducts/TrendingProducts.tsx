@@ -3,7 +3,8 @@ import React from "react";
 import Image from "next/image";
 import Rating from "@/Components/Utils/Rating";
 import {Card, CardFooter, Button} from "@nextui-org/react";
-import { TFlashSale } from "@/types";
+import { TProduct, TReview } from "@/types";
+import Link from "next/link";
 
 const TrendingProducts = async () => {
   const res = await fetch(
@@ -25,34 +26,40 @@ const TrendingProducts = async () => {
       Trending Products
     </h3>
     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 place-items-center">
-      {trendingSales?.slice(0, 6).map((sale:TFlashSale) => (
-        <Card key={sale._id} isFooterBlurred radius="lg" className="border-none overflow-visible w-full max-w-xs ">
-           <div className="w-full h-96 relative">
+      {trendingSales?.slice(0, 6).map((sale:TProduct) => (
+        
+        <Card key={sale._id} isFooterBlurred radius="lg" className="border-none overflow-visible w-full max-w-xs">
+          <Link href="/products">
+          <div className="w-full h-96 relative">
 
-          <Image
-            alt={sale.title}
-            className="object-cover"
-            src={sale.image}
-            fill
+         <Image
+           alt={sale.title}
+           className="object-cover"
+           src={sale.image}
+           fill
+          
+         />
+         </div>
+         <CardFooter className="justify-between border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10  ">
+           <div className="mx-auto">
+             <h2 className="text-secondary font-bold text-xl mb-4">{sale.title}</h2>
+             <div className=" rounded-xl  mb-2 flex justify-evenly items-center">
+             <div className="bg-secondary text-center rounded-xl px-4 py-1  mx-auto ">
+             {sale.reviews?.map((review:TReview) => (
+               <Rating key={review.userId} value={review.rating} />
+             ))}
+             </div>
+             <p className=" font-bold ml-2 text-xl ">
+             ${sale.salePrice}
+           </p>
+             </div>
            
-          />
-          </div>
-          <CardFooter className="justify-between border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-            <div>
-              <h2 className="text-secondary font-bold text-xl">{sale.title}</h2>
-              <div className="bg-secondary text-center rounded-xl mx-auto w-1/2 p-">
-              {sale.reviews?.map((review) => (
-                <Rating key={review.userId} value={review.rating} />
-              ))}
-              </div>
-              <p>
-              
-                <span className="font-bold ml-2">${sale.salePrice}</span>
-              </p>
-            </div>
-            
-          </CardFooter>
-        </Card>
+           </div>
+           
+         </CardFooter>
+         </Link>
+       </Card>
+      
       ))}
     </div>
   </Container>

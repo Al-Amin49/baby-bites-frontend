@@ -1,1 +1,1 @@
-export * from './flashsale.type'
+export * from './product.type';

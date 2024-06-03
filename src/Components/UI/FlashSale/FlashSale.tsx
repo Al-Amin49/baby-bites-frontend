@@ -2,7 +2,7 @@ import Container from "@/Components/Container/Container";
 import CountdownTimer from "@/Components/Utils/CountdownTimer";
 import Link from "next/link";
 import FlashSaleCard from "./FlashSaleCard";
-import { TFlashSale } from "@/types";
+import { TProduct} from "@/types";
 import PrimaryButton from "@/Components/PrimaryButton/PrimaryButton";
 
 const FlashSale = async () => {
@@ -26,7 +26,7 @@ const FlashSale = async () => {
      
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 place-items-center">
         {sales.map(
-          (sale:TFlashSale) =>
+          (sale:TProduct) =>
             sale.flashSale && (
              <>
               <FlashSaleCard sale={sale} key={sale._id} ></FlashSaleCard>

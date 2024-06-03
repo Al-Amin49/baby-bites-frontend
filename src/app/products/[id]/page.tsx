@@ -2,13 +2,13 @@ import ProductDetails from "@/Components/UI/ProductDetails/ProductDetails";
 
 type TProductProps = {
   params: {
-    productId: string;
+    id: string;
   };
 };
 export const generateStaticParams = async () => {
   try {
     const res = await fetch(
-      `${process.env.BACKEND_URL}/products`
+      `${process.env.BACKEND_URL}/products/`
     );
     const products = await res.json();
 
@@ -27,7 +27,7 @@ export const generateStaticParams = async () => {
 
 const ProductDetailsPage = async ({ params }: TProductProps) => {
   const res = await fetch(
-    `${process.env.BACKEND_URL}/products/${params.productId}`,
+    `${process.env.BACKEND_URL}/products/${params.id}`,
     { cache: "no-store" }
   );
   const { data: product } = await res.json();

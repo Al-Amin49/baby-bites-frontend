@@ -1,12 +1,12 @@
 
 import Image from "next/image";
 import { Card, CardHeader, CardBody } from "@nextui-org/react";
-import { TFlashSale } from "@/types";
+import {  TProduct } from "@/types";
 import PrimaryButton from "@/Components/PrimaryButton/PrimaryButton";
 import { ShoppingCart } from "lucide-react";
 
 type TFlashSaleProps={
-  sale:TFlashSale
+  sale:TProduct
 }
 const FlashSaleCard = ({sale}:TFlashSaleProps) => {
     return (
