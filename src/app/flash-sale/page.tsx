@@ -1,7 +1,5 @@
 import Container from "@/Components/Container/Container";
-import Image from "next/image";
 import CountdownTimer from "@/Components/Utils/CountdownTimer";
-import { Card, CardHeader, CardBody } from "@nextui-org/react";
 import FlashSaleCard from "@/Components/UI/FlashSale/FlashSaleCard";
 import { TProduct } from "@/types";
 

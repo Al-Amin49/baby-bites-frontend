@@ -10,36 +10,33 @@ type TProductProps={
 const ProductsCard = ({ product }:TProductProps) => {
   return (
  
-      <Card className=" w-full max-w-xs" key={product._id}>
-        <CardBody className="overflow-visible ">
-          <div className="w-[400px] h-64 relative">
-            <Image
-              alt="product"
-              className="object-cover"
-              src={product.image}
-              fill
-            />
-          </div>
-        </CardBody>
-        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-          <h4 className="font-bold text-large">{product.title}</h4>
-          <div className="my-4 flex justify-center items-center text-white space-x-5 mx-auto">
-            <div >
-            <span className=" text-gray bg-secondary rounded-xl px-4 py-1 "> ${product.salePrice} </span>
-                </div> 
-               <div>
-                <h3 className="text-gray bg-primary rounded-xl p-2">{product.category}</h3>
-                </div>  
-          </div>
-          <div className="text-center mx-auto my-4">
-            <PrimaryButton
-              btnText="Add To Cart"
-              Icon={<ShoppingCart />}
-            ></PrimaryButton>
-          </div>
-        </CardHeader>
-      </Card>
-    
+    <> 
+    <div className="relative">
+    <div className="w-full h-64 relative">
+      <Image
+        alt="product"
+        className="object-cover"
+        src={product.image}
+        layout="fill"
+      />
+    </div>
+    <div className="p-4">
+      <h4 className="font-bold text-lg">{product.title}</h4>
+      <div className="my-4 flex justify-between items-center">
+        <span className="text-white bg-secondary rounded-xl px-4 py-1">
+          ${product.salePrice}
+        </span>
+        <span className="text-white bg-primary rounded-xl px-4 py-1">
+          {product.category}
+        </span>
+      </div>
+      <button className="bg-secondary text-white font-bold py-2 px-4 rounded flex items-center justify-center w-full">
+        <span className="mr-2">Add To Cart</span>
+        <ShoppingCart/>
+      </button>
+    </div>
+  </div>
+    </>
   );
 };
 

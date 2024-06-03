@@ -1,10 +1,8 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { TProduct } from "@/types";
 import Link from "next/link";
-import Image from "next/image";
-import { ShoppingCart } from "lucide-react";
+import ProductsCard from "./ProductsCard";
 type FilteredProductsProps = {
   products: TProduct[];
 };
@@ -38,11 +36,24 @@ const FilteredProducts = ({ products }: FilteredProductsProps) => {
     setFilteredProducts(filtered);
   }, [category, minPrice, maxPrice, products]);
 
+//if no product found by filtering
+  const noCategoryMatch = category && !filteredProducts.length;
+  const noPriceRangeMatch = !category && (minPrice !== "" || maxPrice !== "") && !filteredProducts.length;
+
+  //Reset filters
+  const handleResetFilters=()=>{
+    setCategory("");
+    setMinPrice("");
+    setMaxPrice("");
+    setFilteredProducts(products);
+  }
   return (
     <div className="flex flex-col md:flex-row gap-4 mb-6">
-      <div className="w-full md:w-1/4">
-        <div className="mb-4">
-          <label className="block mb-2">Category</label>
+      <div className="w-full md:w-1/4 md:sticky md:top-0">
+        <h3 className="text-2xl text-secondary font-bold my-2">Filter By</h3>
+        <hr/>
+        <div className="mb-4 mt-4">
+          <label className="block mb-2 text-secondary font-bold text-xl">Category</label>
           <select
             onChange={(e) => setCategory(e.target.value)}
             className="select select-info w-full"
@@ -56,12 +67,14 @@ const FilteredProducts = ({ products }: FilteredProductsProps) => {
             <option value="Baby Drinks">Baby Drinks</option>
           </select>
         </div>
-        <div className="mb-4">
+       <div> 
+      <h3 className="text-xl text-secondary font-bold mb-4">Price Range:(Min to Max)</h3>
+       <div className="mb-4">
           <label className="block mb-2">Min Price</label>
           <input
             type="number"
             placeholder="Min Price"
-            className="input input-info w-full"
+            className="border p-2"
             value={minPrice}
             onChange={(e) => setMinPrice(e.target.value)}
           />
@@ -71,41 +84,34 @@ const FilteredProducts = ({ products }: FilteredProductsProps) => {
           <input
             type="number"
             placeholder="Max Price"
-            className="input input-info w-full"
+            className="border p-2"
             value={maxPrice}
             onChange={(e) => setMaxPrice(e.target.value)}
           />
         </div>
+        <button
+          className="bg-secondary text-white font-bold py-2 px-4 rounded w-full"
+          onClick={handleResetFilters}
+        >
+          Reset Filters
+        </button>
+       </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full place-items-center">
+      {noCategoryMatch && (
+        <div className="col-span-full text-center text-red-500 text-2xl font-bold">
+          Not exist this category
+        </div>
+      )}
+      {noPriceRangeMatch && (
+        <div className="col-span-full text-center text-red-500 text-2xl font-bold">
+          Not available in this price range
+        </div>
+      )}
         {filteredProducts.map((product: TProduct) => (
           <div key={product._id} className="w-full max-w-xs border rounded-2xl overflow-hidden">
             <Link href={`/products/${product._id}`}>
-              <div className="relative">
-                <div className="w-full h-64 relative">
-                  <Image
-                    alt="product"
-                    className="object-cover"
-                    src={product.image}
-                    layout="fill"
-                  />
-                </div>
-                <div className="p-4">
-                  <h4 className="font-bold text-lg">{product.title}</h4>
-                  <div className="my-4 flex justify-between items-center">
-                    <span className="text-white bg-secondary rounded-xl px-4 py-1">
-                      ${product.salePrice}
-                    </span>
-                    <span className="text-white bg-primary rounded-xl px-4 py-1">
-                      {product.category}
-                    </span>
-                  </div>
-                  <button className="bg-primary text-white font-bold py-2 px-4 rounded flex items-center justify-center w-full">
-                    <span className="mr-2">Add To Cart</span>
-                    <ShoppingCart/>
-                  </button>
-                </div>
-              </div>
+             <ProductsCard product={product} />
             </Link>
           </div>
         ))}
