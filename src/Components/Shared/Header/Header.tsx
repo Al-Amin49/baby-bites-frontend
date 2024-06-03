@@ -7,11 +7,11 @@ import {
     NavbarMenuItem,
     NavbarContent,
     NavbarItem,
-    Button,
   } from "@nextui-org/react";
   import { useState } from "react";
 import Link from "next/link";
 import PrimaryButton from "@/Components/PrimaryButton/PrimaryButton";
+import { ThemeSwitcher } from "@/Components/ThemeSwitcher/ThemeSwitcher";
 
   
   const Header = () => {
@@ -83,6 +83,7 @@ import PrimaryButton from "@/Components/PrimaryButton/PrimaryButton";
           </NavbarMenu>
   
           <NavbarContent justify="end">
+            <ThemeSwitcher/>
             <Link className="text-secondary font-medium" href="#contact">
              <PrimaryButton btnText="Login"/>
             </Link>

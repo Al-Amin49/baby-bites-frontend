@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/Components/Shared/Header/Header";
 import Footer from "@/Components/UI/Footer/Footer";
 import { NextUIProvider } from "@nextui-org/react";
+import { Providers } from "@/lib/Providers";
 
 const poppins = Poppins({
   weight: "400",
@@ -27,12 +28,12 @@ export default function RootLayout({
       <body className={poppins.className}>
      
  
-    <NextUIProvider>
+    <Providers>
     
        <Header/>
         <div className="min-h-screen">{children}</div>
        <Footer />
-       </NextUIProvider>
+       </Providers>
       </body>
     </html>
   );
