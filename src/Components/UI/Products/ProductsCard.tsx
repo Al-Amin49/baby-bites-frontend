@@ -3,6 +3,7 @@ import { TProduct } from "@/types";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 type TProductProps={
     product:TProduct
@@ -30,10 +31,11 @@ const ProductsCard = ({ product }:TProductProps) => {
           {product.category}
         </span>
       </div>
-      <button className="bg-secondary text-white font-bold py-2 px-4 rounded flex items-center justify-center w-full">
-        <span className="mr-2">Add To Cart</span>
-        <ShoppingCart/>
+    <Link href={`/products/${product._id}`}>
+    <button className="bg-secondary text-white font-bold py-2 px-4 rounded flex items-center justify-center w-full">
+        <span className="mr-2">View Details</span>
       </button>
+    </Link>
     </div>
   </div>
     </>

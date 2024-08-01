@@ -4,16 +4,15 @@ import FlashSaleCard from "@/Components/UI/FlashSale/FlashSaleCard";
 import { TProduct } from "@/types";
 
 const FlashSalePage = async () => {
-  const res = await fetch(`${process.env.BACKEND_URL}/products`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${process.env.BACKEND_URL}/products`);
   const { data: sales } = await res.json();
+  console.log('data', sales)
   return (
     <Container className="my-10">
       <CountdownTimer />
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 place-items-center">
-        {sales.map((sale:TProduct) =>
-          sale.flashSale && (
+        {sales?.map((sale:TProduct) =>
+          sale?.flashSale && (
            <>
            <FlashSaleCard sale={sale} key={sale._id}/>
            </>

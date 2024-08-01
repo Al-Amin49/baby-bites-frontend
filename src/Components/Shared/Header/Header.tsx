@@ -25,11 +25,11 @@ import { ThemeSwitcher } from "@/Components/ThemeSwitcher/ThemeSwitcher";
     };
     const menuItems = [
       { label: "Home", href: "/" },
-      { label: "Categories", href: "/" },
+      // { label: "Categories", href: "/" },
       { label: "Products", href: "/products" },
       { label: "Flash Sale", href: "flash-sale" },
-      { label: "About Us", href: "/" },
-      { label: "Contact Us", href: "/" },
+      // { label: "About Us", href: "/" },
+      // { label: "Contact Us", href: "/" },
     ];
   
     return (
@@ -84,9 +84,9 @@ import { ThemeSwitcher } from "@/Components/ThemeSwitcher/ThemeSwitcher";
   
           <NavbarContent justify="end">
             <ThemeSwitcher/>
-            <Link className="text-secondary font-medium" href="#contact">
+            {/* <Link className="text-secondary font-medium" href="#contact">
              <PrimaryButton btnText="Login"/>
-            </Link>
+            </Link> */}
           </NavbarContent>
         </Navbar>
       </>

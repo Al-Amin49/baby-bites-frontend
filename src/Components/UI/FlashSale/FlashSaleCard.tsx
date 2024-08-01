@@ -4,6 +4,7 @@ import { Card, CardHeader, CardBody } from "@nextui-org/react";
 import {  TProduct } from "@/types";
 import PrimaryButton from "@/Components/PrimaryButton/PrimaryButton";
 import { ShoppingCart } from "lucide-react";
+import Link from "next/link";
 
 type TFlashSaleProps={
   sale:TProduct
@@ -33,10 +34,10 @@ const FlashSaleCard = ({sale}:TFlashSaleProps) => {
                         </span>{" "}
                       </p>
                       <div className="text-center mx-auto my-4">
-                      <PrimaryButton
-                       btnText="Add To Cart"
-                       Icon={<ShoppingCart/>}
-                       ></PrimaryButton>
+                      <Link href={`/products/${sale._id}`}><PrimaryButton
+                       btnText="View Details"
+                      //  Icon={<ShoppingCart/>}
+                       ></PrimaryButton></Link>
                       </div>
               </CardHeader>
             </Card>

@@ -2,10 +2,10 @@ import Container from "@/Components/Container/Container";
 import FilteredProducts from "@/Components/UI/Products/FilteredProducts";
 
 const ProductsPage = async () => {
-  const res = await fetch(`${process.env.BACKEND_URL}/products`, {
-    cache: "no-store",
-  });
+  console.log('before product')
+  const res = await fetch(`${process.env.BACKEND_URL}/products`);
   const { data: products } = await res.json();
+
 
   return (
     <Container className="my-10">
