@@ -6,7 +6,7 @@ import { TProduct} from "@/types";
 import PrimaryButton from "@/Components/PrimaryButton/PrimaryButton";
 
 const FlashSale = async () => {
-  const res = await fetch(`${process.env.BACKEND_URL}/products`, {
+  const res = await fetch(`${process.env.BACKEND_URL}/products`,{
     next: {
       revalidate: 30,
     },

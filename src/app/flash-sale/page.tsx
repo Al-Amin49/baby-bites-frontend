@@ -4,7 +4,7 @@ import FlashSaleCard from "@/Components/UI/FlashSale/FlashSaleCard";
 import { TProduct } from "@/types";
 
 const FlashSalePage = async () => {
-  const res = await fetch(`${process.env.BACKEND_URL}/products`);
+  const res = await fetch(`https://baby-bites-hazel.vercel.app/api/v1/products`);
   const { data: sales } = await res.json();
   console.log('data', sales)
   return (
