@@ -12,6 +12,7 @@ import {
 import Link from "next/link";
 import PrimaryButton from "@/Components/PrimaryButton/PrimaryButton";
 import { ThemeSwitcher } from "@/Components/ThemeSwitcher/ThemeSwitcher";
+import { GiBabyBottle } from "react-icons/gi";
 
   
   const Header = () => {
@@ -45,7 +46,10 @@ import { ThemeSwitcher } from "@/Components/ThemeSwitcher/ThemeSwitcher";
                onClick={handleMenuToggle}
             />
             <NavbarBrand className="">
-             <Link href="/"> 
+             <Link href="/" className="flex items-center gap-1"> 
+             <span className="text-xl text-primary">
+                  <GiBabyBottle />
+                </span>
              <span className="text-secondary">Baby</span> <span className="text-primary">Bites</span>
              </Link>
             </NavbarBrand>
